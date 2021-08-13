@@ -206,9 +206,15 @@ function filterByGenre(movies, genre) {
  */
 function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
 
-  let
-
-
+  let moviesByYear = [];
+  
+  for (let movie of movies){
+    let releasedDate = movie.released.split(' ')
+    if (Number(releasedDate[2]) <= year) {
+      moviesByYear.push(movie)
+    }
+  }
+  return moviesByYear
 }
 
 /**
@@ -222,7 +228,11 @@ function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
  *  getBiggestBoxOfficeMovie(movies);
  *  //> "Incredibles 2"
  */
-function getBiggestBoxOfficeMovie() {}
+function getBiggestBoxOfficeMovie(movies) {
+  let highestSellingMovie = []
+
+  
+}
 
 // Do not change anything below this line.
 module.exports = {
