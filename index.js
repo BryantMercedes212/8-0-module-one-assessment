@@ -252,7 +252,6 @@ function getBiggestBoxOfficeMovie(movies) {
   }
   return nameOfMovie
 }
-getBiggestBoxOfficeMovie(exampleMovies)
 
 // Do not change anything below this line.
 module.exports = {
