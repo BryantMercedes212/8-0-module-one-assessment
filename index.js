@@ -29,17 +29,16 @@ const exampleMovies = require("./movies");
     ];
  */
 function getAllMovieTitles(movies) {
-
   let movieNames = [];
 
   if (!movies.length) {
-    return []
+    return [];
   }
 
   for (let movie of movies) {
-    movieNames.push(movie.title)
+    movieNames.push(movie.title);
   }
-return movieNames
+  return movieNames;
 }
 
 /**
@@ -54,18 +53,17 @@ return movieNames
  *  //> 96
  */
 function getHighestMetascore(movies) {
-  
   if (!movies.length) {
-    return 0
+    return 0;
   }
-  
+
   let highestMetascore = Number(movies[0].metascore);
   for (let movie of movies) {
-    if (highestMetascore < Number(movie.metascore)){
-      highestMetascore = Number(movie.metascore)
+    if (highestMetascore < Number(movie.metascore)) {
+      highestMetascore = Number(movie.metascore);
     }
   }
-  return highestMetascore
+  return highestMetascore;
 }
 
 /**
@@ -80,18 +78,17 @@ function getHighestMetascore(movies) {
  *  //> 7.76
  */
 function getAverageIMDBRating(movies) {
-
   let averageIMDBRating = 0;
 
   if (!movies.length) {
-    return 0
+    return 0;
   }
 
   for (let movie of movies) {
     averageIMDBRating += Number(movie.imdbRating) / movies.length;
   }
 
-return averageIMDBRating
+  return averageIMDBRating;
 }
 
 /**
@@ -105,7 +102,18 @@ return averageIMDBRating
  *  countByRating(movies);
  *  //> { G: 3, PG: 7 }
  */
-function countByRating() {}
+function countByRating(movies) {
+  let movieByRating = {};
+
+  if (!movies.length) {
+    return {};
+  }
+  for (let movie of movies) {
+    movieByRating[movie.rated] = movieByRating[movie.rated] + 1 || 1;
+  }
+
+  return movieByRating;
+}
 
 /**
  * findById()
@@ -121,7 +129,22 @@ function countByRating() {}
       // Toy Story 4
     };
  */
-function findById() {}
+function findById(movies, id) {
+  let movieInfo = {};
+
+  if (!movies.length) {
+    return null;
+  }
+  for (let movie of movies) {
+    if (movie.imdbID === id) {
+      movieInfo = movie;
+      break; //this was my first time using break because I came up with it and it worked. I was Hyped
+    } else if (movie.imdbID !== id) {
+      movieInfo = null;
+    }
+  }
+  return movieInfo;
+}
 
 /**
  * filterByGenre()
@@ -143,7 +166,21 @@ function findById() {}
  *  filterByGenre(movies, "Horror")
  *  //> []
  */
-function filterByGenre() {}
+function filterByGenre(movies, genre) {
+  let sameGenreMovies = [];
+  newGen = genre[0].toUpperCase() + genre.slice(1).toLowerCase();
+
+  if (!movies.length) {
+    return [];
+  }
+
+  for (let movie of movies) {
+    if (movie.genre.includes(newGen)) {
+      sameGenreMovies.push(movie);
+    }
+  }
+  return sameGenreMovies;
+}
 
 /**
  * getAllMoviesReleasedAtOrBeforeYear()
@@ -167,7 +204,12 @@ function filterByGenre() {}
       }
     ];
  */
-function getAllMoviesReleasedAtOrBeforeYear() {}
+function getAllMoviesReleasedAtOrBeforeYear(movies, year) {
+
+  let
+
+
+}
 
 /**
  * getBiggestBoxOfficeMovie()
